@@ -1,4 +1,5 @@
 import { createContext, useReducer, useContext } from 'react';
+import PropTypes from 'prop-types';
 import reducer from './reducer';
 
 const AppContext = createContext();
@@ -45,6 +46,7 @@ export const AppProvider = ({ children }) => {
   return <AppContext.Provider value={store}>{children}</AppContext.Provider>;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useVoting = () => {
   const context = useContext(AppContext);
 
@@ -64,3 +66,7 @@ export const useVoting = () => {
 
 //   return context.dispatch;
 // };
+
+AppProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

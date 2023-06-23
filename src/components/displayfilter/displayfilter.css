@@ -1,4 +1,4 @@
-.displayoptions{
+.displayoptions {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -7,6 +7,6 @@
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.displayoptions--input:hover{
+.displayoptions--input:hover {
   cursor: pointer;
 }

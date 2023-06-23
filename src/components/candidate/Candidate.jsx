@@ -1,4 +1,5 @@
 import { useVoting } from '../../store';
+import PropTypes from 'prop-types';
 import './candidate.css';
 
 const Candidate = ({ candidate }) => {
@@ -18,3 +19,12 @@ const Candidate = ({ candidate }) => {
 };
 
 export default Candidate;
+
+Candidate.propTypes = {
+  candidate: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }).isRequired,
+};

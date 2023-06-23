@@ -4,20 +4,16 @@ import './displayfilter.css';
 
 const DisplayFilter = () => {
   const { state, dispatch } = useVoting();
+  const filter = state.resultType;
 
   const handleChange = ({ target }) => {
     const { value } = target;
     dispatch({ type: SET_RESULT_TYPE, payload: value });
   };
 
-  const filter = state.resultType;
-  console.log(state.resultType)
-
-
-
   return (
     <div className='displayoptions'>
-      <label htmlFor='percentage'  className='displayoptions--input'>
+      <label htmlFor='percentage' className='displayoptions--input'>
         <input
           type='radio'
           value='percentage'
@@ -29,7 +25,7 @@ const DisplayFilter = () => {
         />
         <span>Total %</span>
       </label>
-      <label htmlFor='total'  className='displayoptions--input'>
+      <label htmlFor='total' className='displayoptions--input'>
         <input
           type='radio'
           value='total'

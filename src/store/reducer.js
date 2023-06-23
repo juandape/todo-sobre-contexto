@@ -1,4 +1,4 @@
-import { SET_VOTE, SET_RESULT_TYPE } from "./actionTypes";
+import { SET_VOTE, SET_RESULT_TYPE } from './actionTypes';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -26,10 +26,9 @@ function reducer(state, action) {
         candidates: newCandidates,
         totalVotes: newTotalVotes,
       };
-
     }
     case SET_RESULT_TYPE: {
-     return { ...state, resultType: action.payload };
+      return { ...state, resultType: action.payload };
     }
 
     default: {
