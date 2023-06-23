@@ -6,3 +6,7 @@
   width: 100px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.displayoptions--input:hover{
+  cursor: pointer;
+}

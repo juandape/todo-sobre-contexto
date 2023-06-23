@@ -12,8 +12,8 @@ const Results = () => {
           <div key={candidate.id}>
             <div className='results--label'>{candidate.name}</div>
             <div className='results--value'>
-              {state.resultresType === 'percentage'
-                ? candidate.percentage.toFixed(2)
+              {state.resultType === 'percentage'
+                ? `${candidate.percentage.toFixed(0)}%`
                 : candidate.votes}
             </div>
           </div>

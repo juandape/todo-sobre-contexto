@@ -17,7 +17,7 @@ const DisplayFilter = () => {
 
   return (
     <div className='displayoptions'>
-      <label htmlFor='percentage'>
+      <label htmlFor='percentage'  className='displayoptions--input'>
         <input
           type='radio'
           value='percentage'
@@ -25,10 +25,11 @@ const DisplayFilter = () => {
           name='type'
           onChange={handleChange}
           checked={filter === 'percentage'}
+          className='displayoptions--input'
         />
         <span>Total %</span>
       </label>
-      <label htmlFor='total'>
+      <label htmlFor='total'  className='displayoptions--input'>
         <input
           type='radio'
           value='total'
@@ -36,6 +37,7 @@ const DisplayFilter = () => {
           name='type'
           onChange={handleChange}
           checked={filter === 'total'}
+          className='displayoptions--input'
         />
         <span>Total</span>
       </label>
