@@ -22,18 +22,18 @@ Production: https://todo-sobre-contexto.vercel.app/
 - React code using vite in vs code
 - CSS properties in a stylesheet file
 - React Router library
-- Bem Notation css
+- context from react
 
-## What We learned
+## What I learned
 
-I practice html, css, react and js
+I practice html, css, react, context
 
-## Authors
+## Author
 
-Juan David Peña - Miguel Chaparro - Alex Herrera
-github - @juandape - @miguelchaparrocolo - @guialexander
-email - juandavidp76@hotmail.com - -
+Juan David Peña
+github - @juandape
+email - juandavidp76@gmail.com
 
 ## Acknowledgments
 
-Thanks to Make it Real to show us a path to become a better programmers
+Thanks to Make it Real to show me a path to become a better programmer
