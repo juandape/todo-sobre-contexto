@@ -1,9 +1,9 @@
 import Candidate from '../candidate/Candidate';
-import { useVoting } from '../../store';
+import { useSelector } from '../../store';
 import './candidates.css';
 
 const Candidates = () => {
-  const { state } = useVoting();
+  const state = useSelector();
 
   return (
     <>

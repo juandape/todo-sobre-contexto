@@ -1,8 +1,8 @@
-import { useVoting } from '../../store';
+import { useSelector } from '../../store';
 import './totalvotes.css';
 
 const TotalVotes = () => {
-  const { state } = useVoting();
+  const state = useSelector();
 
   return (
     <>

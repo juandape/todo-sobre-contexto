@@ -1,9 +1,9 @@
-import { useVoting } from '../../store';
+import { useDispatch } from '../../store';
 import PropTypes from 'prop-types';
 import './candidate.css';
 
 const Candidate = ({ candidate }) => {
-  const { dispatch } = useVoting();
+  const dispatch = useDispatch();
 
   const handleVote = (id) => {
     dispatch({ type: 'SET_VOTE', payload: id });

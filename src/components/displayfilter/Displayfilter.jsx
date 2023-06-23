@@ -1,9 +1,11 @@
-import { useVoting } from '../../store';
+import { useSelector, useDispatch } from '../../store';
 import { SET_RESULT_TYPE } from '../../store/actionTypes';
 import './displayfilter.css';
 
 const DisplayFilter = () => {
-  const { state, dispatch } = useVoting();
+  const state = useSelector();
+  const dispatch = useDispatch();
+
   const filter = state.resultType;
 
   const handleChange = ({ target }) => {

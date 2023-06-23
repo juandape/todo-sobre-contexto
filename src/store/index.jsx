@@ -47,25 +47,26 @@ export const AppProvider = ({ children }) => {
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const useVoting = () => {
+export const useSelector = () => {
   const context = useContext(AppContext);
 
   if (context === undefined) {
     throw new Error('useSelector must be used within a AppProvider');
   }
 
-  return context;
+  return context.state;
 };
 
-// export const useDispatch = () => {
-//   const context = useContext(AppContext);
+// eslint-disable-next-line react-refresh/only-export-components
+export const useDispatch = () => {
+  const context = useContext(AppContext);
 
-//   if (context === undefined) {
-//     throw new Error('useDispatch must be used within a AppProvider');
-//   }
+  if (context === undefined) {
+    throw new Error('useDispatch must be used within a AppProvider');
+  }
 
-//   return context.dispatch;
-// };
+  return context.dispatch;
+};
 
 AppProvider.propTypes = {
   children: PropTypes.node.isRequired,
