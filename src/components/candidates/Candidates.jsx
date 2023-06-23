@@ -1,45 +1,19 @@
-import { useEffect, useState } from 'react';
-import { getCandidates } from '../../services/candidates';
-import { useDispatch, useSelector } from '../../store';
-import { setLoading } from '../../store/actions';
-import VoteCounter from '../votecounter/Votecounter';
+import Candidate from '../candidate/Candidate';
+import { useVoting } from '../../store';
+import './candidates.css';
 
 const Candidates = () => {
-  const dispatch = useDispatch();
-  const state = useSelector();
-  const [candidates, setCandidates] = useState([]);
-
-  useEffect(() => {
-    const fetchCandidates = async () => {
-      try {
-        dispatch(setLoading(true));
-        const candidates = await getCandidates();
-        setCandidates(candidates);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        dispatch(setLoading(false));
-      }
-    };
-    fetchCandidates();
-  }, []);
+  const { state } = useVoting();
 
   return (
-    <div>
-      <h1>Candidates</h1>
-      {state.isLoading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <ul>
-          {candidates.map((candidate) => (
-            <li key={candidate.id}>
-              <p>{candidate.name}</p>
-              <VoteCounter />
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <>
+      <h2>Candidates</h2>
+      <div className='candidates'>
+        {state.candidates.map((candidate) => (
+          <Candidate key={candidate.id} candidate={candidate} />
+        ))}
+      </div>
+    </>
   );
 };
 

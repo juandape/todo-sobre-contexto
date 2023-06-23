@@ -1,11 +1,16 @@
-
+import { useVoting } from '../../store';
+import './totalvotes.css';
 
 const TotalVotes = () => {
+  const { state } = useVoting();
+
   return (
-    <div className="total-votes">
-      <h1>Total Votes</h1>
-      <p>0</p>
-    </div>
+    <>
+      <h2>Total Votes</h2>
+      <div className='total-votes'>
+        <p>{state.totalVotes}</p>
+      </div>
+    </>
   );
-}
+};
 export default TotalVotes;

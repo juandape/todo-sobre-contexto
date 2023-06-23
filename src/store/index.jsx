@@ -4,10 +4,34 @@ import reducer from './reducer';
 const AppContext = createContext();
 
 const initialState = {
-  name: null,
-  votecounter: 0,
-  totalvotes: 0,
-  isLoading: false,
+  candidates: [
+    {
+      id: 1,
+      name: 'Don Julio',
+      votes: 0,
+      percentage: 0,
+    },
+    {
+      id: 2,
+      name: 'Jhonny Walker',
+      votes: 0,
+      percentage: 0,
+    },
+    {
+      id: 3,
+      name: 'Jack Daniels',
+      votes: 0,
+      percentage: 0,
+    },
+    {
+      id: 4,
+      name: 'Jose Cuervo',
+      votes: 0,
+      percentage: 0,
+    },
+  ],
+  totalVotes: 0,
+  resultType: 'total',
 };
 
 export const AppProvider = ({ children }) => {
@@ -18,29 +42,25 @@ export const AppProvider = ({ children }) => {
     dispatch,
   };
 
-  return (
-    <AppContext.Provider value={store}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={store}>{children}</AppContext.Provider>;
 };
 
-export const useSelector = () => {
+export const useVoting = () => {
   const context = useContext(AppContext);
 
   if (context === undefined) {
     throw new Error('useSelector must be used within a AppProvider');
   }
 
-  return context.state;
+  return context;
 };
 
-export const useDispatch = () => {
-  const context = useContext(AppContext);
+// export const useDispatch = () => {
+//   const context = useContext(AppContext);
 
-  if (context === undefined) {
-    throw new Error('useDispatch must be used within a AppProvider');
-  }
+//   if (context === undefined) {
+//     throw new Error('useDispatch must be used within a AppProvider');
+//   }
 
-  return context.dispatch;
-};
+//   return context.dispatch;
+// };

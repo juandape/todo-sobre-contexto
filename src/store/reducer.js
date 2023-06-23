@@ -1,21 +1,35 @@
-import { SET_LOADING, SET_VOTES, SET_TOTAL_VOTES } from './types';
+import { SET_VOTE, SET_RESULT_TYPE } from "./actionTypes";
 
 function reducer(state, action) {
   switch (action.type) {
-    case SET_LOADING: {
-      return { ...state, loading: action.payload };
+    case SET_VOTE: {
+      const id = action.payload;
+      const newTotalVotes = state.totalVotes + 1;
+      const newCandidates = state.candidates.map((candidate) => {
+        if (candidate.id === id) {
+          const votes = candidate.votes + 1;
+          return {
+            ...candidate,
+            votes,
+            percentage: (votes / newTotalVotes) * 100,
+          };
+        } else {
+          return {
+            ...candidate,
+            percentage: (candidate.votes / newTotalVotes) * 100,
+          };
+        }
+      });
+
+      return {
+        ...state,
+        candidates: newCandidates,
+        totalVotes: newTotalVotes,
+      };
+
     }
-    case SET_VOTES: {
-      const newVote = action.payload;
-      const newVotes = [...state.votes, newVote];
-      const total = newVotes.reduce((acc, vote) => acc + vote, 0);
-      return { ...state, votes: newVotes, total };
-    }
-    case SET_TOTAL_VOTES: {
-      const newTotalVotes = action.payload;
-      const newTotal = [...state.votes, newTotalVotes];
-      const total = newTotalVotes.reduce((acc, vote) => acc + vote, 0);
-      return { ...state, newTotal: newTotal, total };
+    case SET_RESULT_TYPE: {
+     return { ...state, resultType: action.payload };
     }
 
     default: {
