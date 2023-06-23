@@ -1,5 +1,5 @@
 import './App.css';
-import Results from './components/Results/Results';
+import Results from './components/results/Results';
 import Candidates from './components/candidates/Candidates';
 import DisplayFilter from './components/displayfilter/Displayfilter';
 import TotalVotes from './components/totalvotes/Totalvotes';
